@@ -1,0 +1,18 @@
+* {
+background: rgb(224, 243, 255);}
+
+nav ul {
+    margin:0px;
+    padding:0px;
+    display: flex;
+    list-style-type: None;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items: center;
+    max-width: 500px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+

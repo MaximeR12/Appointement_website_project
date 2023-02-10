@@ -1,0 +1,39 @@
+{% load static %}
+
+<html>
+    <head>
+        {% block title %} {% endblock %}
+        <!--<link rel="stylesheet" href="{% static 'listings/styles.css' %}" > -->
+    </head>
+
+    <body>
+        <nav>
+            <!--<figure class="logo"><img src="Ressources/logo.png" alt="Logo"></figure> -->
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="">Profile</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Log in</a></li>
+                <li><a href="{% url 'register_user' %}">Register</a></li>
+                {% endif %}
+                
+            </ul>
+        </nav>
+        {% if messages %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        {% endif %}
+        
+        {% block body %} {% endblock %}
+        <footer>
+        <p>
+            <h2>À propos du site :</h2>
+            Crée par Maxime en Fevr 2023 dans le cadre de la formation Simplon Tech IA roubaix
+        </p>
+        <footer>
+    </body>
+
+</html>
