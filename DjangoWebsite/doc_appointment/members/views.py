@@ -31,8 +31,11 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, "You're now logged in")
-            return redirect('home')
+            if request.user.is_staff:
+                return redirect('planning')
+            else:
+                messages.success(request, "You're now logged in")
+                return redirect('home')
         else:
             messages.success(request, "Could not log you in, verify your username/password")
             return redirect('login')

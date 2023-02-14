@@ -12,7 +12,7 @@ hours=[
 ]
 
 class BookingForm(forms.Form):
-    date = forms.DateField(widget=forms.DateInput(attrs={'type':'date'}))
-    hour = forms.CharField(widget=forms.Select(choices=hours))
-    more = forms.CharField(widget=forms.Textarea)
+    date = forms.DateField(widget=forms.DateInput(attrs={'type':'date', 'class':'form date'}))
+    hour = forms.CharField(widget=forms.Select(choices=hours, attrs={'class':'form hour'}))
+    more = forms.CharField(required = False, widget=forms.Textarea(attrs={'class':'form more'}))
 

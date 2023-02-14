@@ -1,0 +1,15 @@
+{% extends 'appointment/base.html' %}
+
+{% block title %}
+<title>Homepage</title>
+{% endblock  %}
+
+{% block body %}
+
+<ul>
+{% for appt in bookings %}
+<li><p>{{appt.day}} at {{appt.hour}} with {{appt.booking_name}}</p><p>Notes : {{appt.more}}</p><a href='{% url 'appt-delete' id=appt.id %}'>delete appointment</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

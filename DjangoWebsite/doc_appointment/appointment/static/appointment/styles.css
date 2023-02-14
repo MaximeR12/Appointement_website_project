@@ -48,6 +48,8 @@ nav{
 
 /*##############   ALERT BOX   ###################*/
 .alert {
+    position: absolute;
+    top :80px;
     padding: 20px;
     background-color: #2b78a4;
     color: white;
