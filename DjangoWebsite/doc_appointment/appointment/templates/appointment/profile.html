@@ -6,9 +6,8 @@
 
 {% block body %}
         <h1>Profile</h1>
-        <a href = '{% url 'appt-list' %}'>booked appointments</a>
-        <p>username :{{user.username}}</p>
-        <p>additionnal informations :</p>
+        <p>username : {{user.username}}</p>
+        <p>additionnal informations : </p>
         <form method="POST">
             {% csrf_token %}
             <div class="form-group">
@@ -26,6 +25,6 @@
 
                     <button type="submit" class="btn btn-primary">Change</button>
         </form>
-        <br/><br/><br/><br/>
-
+        
+        <a href = '{% url 'appt-list' %}'>booked appointments</a>
 {% endblock %}

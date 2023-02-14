@@ -11,24 +11,24 @@
     </head>
 
     <body>
-        <nav> <!-- ##############################       NAV       ###########################-->
+        <header>
+            <nav> <!-- ##############################       NAV       ###########################-->
             <!--<figure class="logo"><img src="Ressources/logo.png" alt="Logo"></figure> -->
-            <ul>
-                {% if user.is_staff %}
-                <li><a href='{% url 'planning' %}'>Planning</a></li>
-                {% endif %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                <li><a href="{% url 'logout' %}">Log out</a></li>
-                {% else %}
-                <li><a href="{% url 'login' %}">Log in</a></li>
-                <li><a href="{% url 'register_user' %}">Register</a></li>
-                {% endif %}
-                
-            </ul>
-        </nav>
-                           
+                <ul>
+                    {% if user.is_staff %}
+                    <li><a href='{% url 'planning' %}'>Planning</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Log in</a></li>
+                    <li><a href="{% url 'register_user' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>                
             {% for message in messages %}
             <div class="alert"><!--#########################  ALERT BOX   #############################-->
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -42,8 +42,10 @@
 
 
         <footer><!-- #######################    FOOTER   #################################-->
-            <h2>À propos du site :</h2>
-            <p>Crée par Maxime Rowell en Fevrier 2023 dans le cadre de la formation Simplon Tech IA roubaix</p>
+            <div class="footercont">
+                <p><span class="footer-title">About :</span><br>Website created by Maxime Rowell as en exercise for Simplon Tech IA Roubaix</p>
+                <p><span class="footer-title">Contact</span><br>Phone : 06 11 22 33 44    Opening hours : Monday-Friday : 9:00 - 17:00</p>
+            </div>
         <footer>
 
     </body>

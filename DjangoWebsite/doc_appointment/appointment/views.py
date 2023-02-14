@@ -72,7 +72,7 @@ def appt_list(request):
                 bookings_incoming.append(appt)
             else:
                 bookings_happened.append(appt)
-        return render(request, 'appointment/appt-list.html/',{'user' : request.user, "bookings_incoming" : bookings_incoming, 'bookings_happened' : bookings_happened, "nb_inc" : len(bookings_incoming), "nb_hap" : len(bookings_happened)} )
+        return render(request, 'appointment/appt-list.html/',{'user' : request.user, "bookings_incoming" : bookings_incoming.sort(key= lambda x : x.day), 'bookings_happened' : bookings_happened.sort(key= lambda x : x.day), "nb_inc" : len(bookings_incoming), "nb_hap" : len(bookings_happened)} )
     
 
 def delete_appt(request,id):
@@ -110,4 +110,4 @@ def planning(request):
         messages.success(request, "You must be a staff user to access this page")
         return HttpResponseRedirect(reverse("login")) #redirect to login page
     else:
-        return render(request, 'appointment/planning.html',{'bookings': bookings})
+        return render(request, 'appointment/planning.html',{'bookings': bookings.order_by('day', 'hour')})
