@@ -1,0 +1,28 @@
+{% extends 'appointment/base.html' %}
+
+{% block title %}
+<title>Your appointments</title>
+{% endblock  %}
+
+{% block body %}
+{% if nb_inc == 0 and nb_hap == 0 %}<p>No appointment booked yet</p>{% endif %}
+
+{% if nb_inc > 0 %}Yet to come :{% endif %}             <!-- INCOMING BOOKINGS -->
+<ul>
+    {% for appt in bookings_incoming %}
+    {% if appt.booking_user_id == user.id and not appt.happened %} 
+    <li>{{appt.hour}} on {{appt.day}}</li> <a href="{% url 'appt-delete' id=appt.id %}">Cancel</a>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% if nb_hap > 0 %}Already passed :{% endif %}           <!-- HAPPENED BOOKINGS -->
+<ul>
+    {% for appt in bookings_happened %}
+    {% if appt.booking_user_id == user.id and appt.happened %} 
+    <li>{{appt.hour}} on {{appt.day}}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock body %}

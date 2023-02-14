@@ -6,7 +6,7 @@
 
 {% block body %}
 
-<p> All good ! Your appointment is confirmed</p>
+<p> All good {{user.first_name}}! Your appointment id is : {{ appointment.id }}. <br> See you at {{appointment.hour}} on {{appointment.day}} </p>
 
-<p> call 00 111 222 to if you want to modify/cancel your appointment <p>
+<p> If you want to cancel your appointment, go to Profile > Booked appointments <p>
 {% endblock %}

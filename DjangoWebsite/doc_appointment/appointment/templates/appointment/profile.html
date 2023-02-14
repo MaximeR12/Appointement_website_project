@@ -1,0 +1,31 @@
+{% extends 'appointment/base.html' %}
+
+{% block title %}
+<title> Profile</title>
+{% endblock  %}
+
+{% block body %}
+        <h1>Profile</h1>
+        <a href = '{% url 'appt-list' %}'>booked appointments</a>
+        <p>username :{{user.username}}</p>
+        <p>additionnal informations :</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>First name :</label>
+                <input type="text" class="form-control" name="first_name" placeholder={{user.first_name}}>
+            </div>
+            <div class="form-group">
+                <label>Last name :</label>
+                <input type="text" class="form-control" name="last_name" placeholder={{user.last_name}}>
+            </div>
+            <div class="form-group">
+                <label>email :</label>
+                <input type="email" class="form-control" name="email" placeholder={{user.email}}>
+            </div>
+
+                    <button type="submit" class="btn btn-primary">Change</button>
+        </form>
+        <br/><br/><br/><br/>
+
+{% endblock %}

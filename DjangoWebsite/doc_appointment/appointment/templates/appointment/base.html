@@ -3,16 +3,20 @@
 <html>
     <head>
         {% block title %} {% endblock %}
-        <!--<link rel="stylesheet" href="{% static 'listings/styles.css' %}" > -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'appointment/styles.css' %}" >
+
     </head>
 
     <body>
-        <nav>
+        <nav> <!-- ##############################       NAV       ###########################-->
             <!--<figure class="logo"><img src="Ressources/logo.png" alt="Logo"></figure> -->
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="">Profile</a></li>
                 {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Log out</a></li>
                 {% else %}
                 <li><a href="{% url 'login' %}">Log in</a></li>
@@ -21,19 +25,26 @@
                 
             </ul>
         </nav>
-        {% if messages %}
+
+        {% if messages %}<!--#########################  ALERT BOX   #############################-->
             {% for message in messages %}
-            {{ message }}
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ message }}
+            </div>
             {% endfor %}
         {% endif %}
         
+        <main><!--###############################   BODY   #####################################-->
         {% block body %} {% endblock %}
-        <footer>
-        <p>
+        </main>
+
+
+        <footer><!-- #######################    FOOTER   #################################-->
             <h2>À propos du site :</h2>
-            Crée par Maxime en Fevr 2023 dans le cadre de la formation Simplon Tech IA roubaix
-        </p>
+            <p>Crée par Maxime Rowell en Fevrier 2023 dans le cadre de la formation Simplon Tech IA roubaix</p>
         <footer>
+
     </body>
 
 </html>

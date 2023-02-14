@@ -1,18 +1,80 @@
-* {
-background: rgb(224, 243, 255);}
 
+/*##############   INIT   ###################*/
+* {
+background: rgb(224, 243, 255);
+font-family: 'Montserrat', sans-serif;}
+
+main{
+    margin-top: 100px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+body{
+    margin: 0px;
+}
+figure{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/*##############   NAV   ###################*/
 nav ul {
+    background-color: black;
     margin:0px;
+    margin-right: 30px;
     padding:0px;
     display: flex;
     list-style-type: None;
-    justify-content: flex-end;
+    justify-content: space-around;
     gap: 30px;
     align-items: center;
     max-width: 500px;
 }
+nav ul a{
+    background-color: black;
+    color: white;
+    text-decoration: None;
+    font-weight:900;
+}
+
 nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    background-color: black;
+    height : 80px;
+}
+
+/*##############   ALERT BOX   ###################*/
+.alert {
+    padding: 20px;
+    background-color: #2b78a4;
+    color: white;
+    margin: 10px 10px 0px 10px;
+    border-radius: 5px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    background-color: #2b78a4;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover {
+    color: black;
+
+}
+/*################   FOOTER   ###################*/
+footer{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
 }
 
