@@ -1,3 +1,6 @@
+# Secret Django Key
+DjangoWebiste/doc_appointment/secret-key-django.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
