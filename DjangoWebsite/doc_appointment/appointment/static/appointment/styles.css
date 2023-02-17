@@ -120,12 +120,12 @@ footer{
     color: aliceblue;
 }
     
-main a {
+main a:not(.cancel-btn){
     display: inline-block;
-    margin: 10 0 5px 0;
+    margin: 10px 0 5px 0;
 }
 
-main a:active {
+main a:not(.cancel-btn):active {
     margin: 13px 0 0 0;
 }
 
