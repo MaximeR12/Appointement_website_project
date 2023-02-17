@@ -10,9 +10,9 @@ import datetime
 
 
 
-
 def homepage(request):
     return render(request, 'appointment/homepage.html')
+
 
 
 def appointment(request):
@@ -53,6 +53,8 @@ def appointment(request):
             form = BookingForm()
     return render(request, 'appointment/appointment.html',{'form' : form})
 
+
+
 def confirm(request):
     last_appointment = Appointment.objects.last()
     return render(request, 'appointment/confirm.html', {'appointment' : last_appointment, 'user' : request.user})
@@ -70,10 +72,13 @@ def appt_list(request):
         for appt in Appointment.objects.filter(booking_user_id = request.user.id):
             if not appt.happened:
                 bookings_incoming.append(appt)
-            else:
+            elif appt.happened:
                 bookings_happened.append(appt)
-        return render(request, 'appointment/appt-list.html/',{'user' : request.user, "bookings_incoming" : bookings_incoming.sort(key= lambda x : x.day), 'bookings_happened' : bookings_happened.sort(key= lambda x : x.day), "nb_inc" : len(bookings_incoming), "nb_hap" : len(bookings_happened)} )
+            bookings_incoming.sort(key= lambda x : x.day)
+            bookings_happened.sort(key= lambda x : x.day)
+        return render(request, 'appointment/appt-list.html/',{'user' : request.user, "bookings_incoming" : bookings_incoming, 'bookings_happened' : bookings_happened, 'nb_inc' : len(bookings_incoming), "nb_hap" : len(bookings_happened)} )
     
+
 
 def delete_appt(request,id):
     appt = Appointment.objects.get(id = id)
@@ -83,9 +88,12 @@ def delete_appt(request,id):
     return redirect('http://127.0.0.1:8000/appointment-list/')
 
 
+
 def details(request, id):
     appt = Appointment.objects.get(id = id)
     return render(request, 'appointment/details.html', {"appointment" : appt})
+
+
 
 def profile(request):
     if not request.user.is_authenticated: #if the user is not authenticated
@@ -103,6 +111,8 @@ def profile(request):
             return render(request, 'appointment/profile.html/', {'user' : request.user})
         else:
             return render(request, 'appointment/profile.html/', {'user' : request.user})
+
+
 
 def planning(request):
     bookings = Appointment.objects.all()

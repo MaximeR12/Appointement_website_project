@@ -16,7 +16,8 @@ class BookingForm(forms.Form):
     hour = forms.CharField(widget=forms.Select(choices=hours, attrs={'class':'form hour'}))
     more = forms.CharField(required = False, widget=forms.Textarea(attrs={'class':'form more'}))
 
-class ProfileForm(forms.Form):
-    first_name = forms.CharField(widget=forms.TextInput, required = False)
-    
+# class ProfileForm(forms.Form):
+#     first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':{{user.email}}}), required = False) ######## Placeholder non fonctionnel
+#     last_name = forms.CharField(widget=forms.TextInput, required = False)
+#     email = forms.EmailField(widget=forms.EmailInput, required = False)
 

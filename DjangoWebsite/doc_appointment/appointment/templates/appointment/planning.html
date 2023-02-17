@@ -6,9 +6,9 @@
 
 {% block body %}
 
-<ul>
+<ul class = "planning">
 {% for appt in bookings %}
-<li><p>{{appt.day}} at {{appt.hour}} with {{appt.booking_name}}</p><p>Notes : {{appt.more}}</p><a href='{% url 'appt-delete' id=appt.id %}'>delete appointment</a></li>
+<li><p>{{appt.day}} at {{appt.hour}} with <span class = "name">{{appt.booking_name}}</span><br><span class= "note">Notes : {{appt.more}}</span></p><a class = "cancel-btn" href='{% url 'appt-delete' id=appt.id %}'>Delete</a></li>
 {% endfor %}
 </ul>
 

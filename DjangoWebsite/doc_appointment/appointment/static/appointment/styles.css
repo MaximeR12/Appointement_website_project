@@ -111,3 +111,60 @@ footer{
     font-weight: 800;
     margin-bottom: 10px;
 }
+
+.btn-bookings{
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #2b78a4;
+    text-decoration: None;
+    color: aliceblue;
+}
+    
+main a {
+    display: inline-block;
+    margin: 10 0 5px 0;
+}
+
+main a:active {
+    margin: 13px 0 0 0;
+}
+
+.cancel-btn{
+    margin: 5px 10px 0 40px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #a33838;
+    text-decoration: None;
+    color: aliceblue;
+    text-align: center;
+}
+main ul {
+    display: table;
+    border-spacing: 0em 2em;
+    border-collapse: separate;
+}
+main li {
+    display: table-row;
+    border: solid black;
+    border-width: 2px 0 0 0;
+}
+main li:first-child {
+    border-top: none;
+  }
+
+main li p {
+    display: table-cell;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.name{
+    font-weight: bolder;
+    color: rgb(33, 33, 123);
+}
+.note{
+    color: rgb(95, 122, 155);
+}
